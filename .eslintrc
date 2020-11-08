@@ -19,8 +19,7 @@
 				"IsCallable",
 				"IteratorClose",
 				"IteratorStep",
-				"SameValue",
-				"SameValueZero",
+				"ToNumber",
 				"ToString",
 				"Type"
 			]
