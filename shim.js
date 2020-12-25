@@ -4,7 +4,7 @@ var define = require('define-properties');
 var globalThis = require('globalthis')();
 var getPolyfill = require('./polyfill');
 var support = require('./lib/support');
-var addIterableToSet = require('./lib/map-helpers').addIterableToSet;
+var addIterableToSet = require('./lib/set-helpers').addIterableToSet;
 var addIterator = require('./lib/helpers').addIterator;
 
 var OrdinarySetPrototypeOf = require('es-abstract/2020/OrdinarySetPrototypeOf');

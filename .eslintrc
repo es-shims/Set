@@ -13,6 +13,7 @@
 				"CreateIterResultObject",
 				"GetIntrinsic",
 				"GetIterator",
+				"HasOwnProperty",
 				"OrdinaryObjectCreate",
 				"OrdinarySetPrototypeOf",
 				"IsArray",
