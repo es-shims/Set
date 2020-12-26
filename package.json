@@ -83,11 +83,13 @@
     "tape": "^5.0.1"
   },
   "dependencies": {
+    "call-bind": "^1.0.0",
     "define-properties": "^1.1.3",
     "es-abstract": "^1.18.0-next.1",
     "es-get-iterator": "^1.1.1",
     "es-map": "git+https://github.com/es-shims/es-map.git#main",
-    "functions-have-names": "^1.2.1",
+    "functions-have-names": "^1.2.2",
+    "get-intrinsic": "^1.0.2",
     "globalthis": "^1.0.1",
     "has-symbols": "^1.0.1"
   },
