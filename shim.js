@@ -2,6 +2,8 @@
 
 var define = require('define-properties');
 var globalThis = require('globalthis')();
+var SLOT = require('internal-slot');
+
 var getPolyfill = require('./polyfill');
 var support = require('./lib/support');
 var addIterableToSet = require('./lib/set-helpers').addIterableToSet;
@@ -36,7 +38,11 @@ module.exports = function shimSet() {
 			if (!(this instanceof SetShim)) {
 				throw new TypeError('Constructor Set requires "new"');
 			}
+			if (this && SLOT.has(this, '[[SetCompliantConstructorShim]]')) {
+				throw new TypeError('Bad construction');
+			}
 			var s = new OrigSet();
+			SLOT.set(s, '[[SetCompliantConstructorShim]]', true);
 			if (arguments.length > 0) {
 				addIterableToSet(s, arguments[0]);
 			}
