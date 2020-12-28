@@ -1,6 +1,7 @@
 'use strict';
 
 var define = require('define-properties');
+var SLOT = require('internal-slot');
 
 var SetIterator = require('./lib/set-iterator');
 var setHelpers = require('./lib/set-helpers');
@@ -27,7 +28,7 @@ var SetShim = function Set() {
 	if (!(this instanceof Set)) {
 		throw new TypeError('Constructor Set requires "new"');
 	}
-	if (this && this['[[es6set]]']) {
+	if (this && SLOT.has(this, '[[es6set]]')) {
 		throw new TypeError('Bad construction');
 	}
 	var set = emulateES6construct(this, Set, SetShimPrototype, {
@@ -35,7 +36,7 @@ var SetShim = function Set() {
 		'[[setData]]': null,
 		'[[storage]]': emptyObject()
 	});
-	if (!set['[[es6set]]']) {
+	if (!SLOT.has(set, '[[es6set]]')) {
 		throw new TypeError('bad set');
 	}
 
@@ -53,15 +54,16 @@ if (define.supportsDescriptors) {
 		enumerable: false,
 		get: function () {
 			requireSetSlot(this, 'size');
-			if (this['[[storage]]']) {
+			var storage = SLOT.get(this, '[[storage]]');
+			if (storage) {
 				var size = 0;
-				iterateStorage(this['[[storage]]'], function () {
+				iterateStorage(storage, function () {
 					size += 1;
 				});
 				return size;
 			}
 			ensureSet(this);
-			return this['[[setData]]'].size;
+			return SLOT.get(this, '[[setData]]').size;
 		}
 	});
 }
@@ -71,14 +73,14 @@ define(SetShimPrototype, {
 	add: function add(key) {
 		requireSetSlot(this, 'has');
 		var fkey;
-		var storage = this['[[storage]]'];
+		var storage = SLOT.get(this, '[[storage]]');
 		if (storage && (fkey = fastkey(key)) !== null) {
 			if (storage[fkey] !== SET_ITEM) {
 				storage[fkey] = SET_ITEM;
 			}
 		} else {
 			ensureSet(this);
-			this['[[setData]]'].set(key, key);
+			SLOT.get(this, '[[setData]]').set(key, key);
 		}
 		return this;
 	},
@@ -86,17 +88,18 @@ define(SetShimPrototype, {
 	has: function has(key) {
 		requireSetSlot(this, 'has');
 		var fkey;
-		if (this['[[storage]]'] && (fkey = fastkey(key)) !== null) {
-			return !!this['[[storage]]'][fkey];
+		var storage = SLOT.get(this, '[[storage]]');
+		if (storage && (fkey = fastkey(key)) !== null) {
+			return !!storage[fkey];
 		}
 		ensureSet(this);
-		return this['[[setData]]'].has(key);
+		return SLOT.get(this, '[[setData]]').has(key);
 	},
 
 	'delete': function (key) {
 		requireSetSlot(this, 'delete');
 		var fkey;
-		var storage = this['[[storage]]'];
+		var storage = SLOT.get(this, '[[storage]]');
 		if (storage && (fkey = fastkey(key)) !== null) {
 			var hasFKey = !!storage[fkey];
 			if (hasFKey) {
@@ -105,34 +108,36 @@ define(SetShimPrototype, {
 			return hasFKey;
 		}
 		ensureSet(this);
-		return this['[[setData]]']['delete'](key);
+		return SLOT.get(this, '[[setData]]')['delete'](key);
 	},
 
 	clear: function clear() {
 		requireSetSlot(this, 'clear');
-		if (this['[[storage]]']) {
-			this['[[storage]]'] = emptyObject();
+		var storage = SLOT.get(this, '[[storage]]');
+		if (storage) {
+			SLOT.set(this, '[[storage]]', emptyObject());
 		}
-		if (this['[[setData]]']) {
-			this['[[setData]]'].clear();
+		var setData = SLOT.get(this, '[[setData]]');
+		if (setData) {
+			setData.clear();
 		}
 	},
 
 	values: function values() {
 		requireSetSlot(this, 'values');
 		ensureSet(this);
-		return new SetIterator(this['[[setData]]'].values());
+		return new SetIterator(SLOT.get(this, '[[setData]]').values());
 	},
 
 	entries: function entries() {
 		requireSetSlot(this, 'entries');
 		ensureSet(this);
-		return new SetIterator(this['[[setData]]'].entries());
+		return new SetIterator(SLOT.get(this, '[[setData]]').entries());
 	},
 
 	forEach: function forEach(fn) {
 		requireSetSlot(this, 'forEach');
-		setForEach(this, fn, arguments.length > 1 ? arguments[1] : void 0);
+		setForEach(this, fn, arguments.length > 1 ? arguments[1] : void undefined);
 	}
 });
 define(SetShimPrototype, { keys: SetShimPrototype.values });
