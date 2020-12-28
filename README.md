@@ -1,8 +1,5 @@
 # es-set <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
 
-> ⚠️ This package is not published on npm yet
-
-[![Build Status][travis-svg]][travis-url]
 [![dependency status][deps-svg]][deps-url]
 [![dev dependency status][dev-deps-svg]][dev-deps-url]
 [![License][license-image]][license-url]
@@ -36,15 +33,13 @@ map.has(3); // false
 Simply clone the repo, `npm install`, and run `npm test`
 
 [package-url]: https://npmjs.org/package/es-shims/es-set
-[npm-version-svg]: http://versionbadg.es/es-shims/es-set.svg
-[travis-svg]: https://travis-ci.org/es-shims/es-set.svg
-[travis-url]: https://travis-ci.org/es-shims/es-set
+[npm-version-svg]: https://versionbadg.es/es-shims/es-set.svg
 [deps-svg]: https://david-dm.org/es-shims/es-set.svg
 [deps-url]: https://david-dm.org/es-shims/es-set
 [dev-deps-svg]: https://david-dm.org/es-shims/es-set/dev-status.svg
 [dev-deps-url]: https://david-dm.org/es-shims/es-set#info=devDependencies
 [npm-badge-png]: https://nodei.co/npm/es-shims/es-set.png?downloads=true&stars=true
-[license-image]: http://img.shields.io/npm/l/es-shims/es-set.svg
+[license-image]: https://img.shields.io/npm/l/es-shims/es-set.svg
 [license-url]: LICENSE
-[downloads-image]: http://img.shields.io/npm/dm/es-shims/es-set.svg
-[downloads-url]: http://npm-stat.com/charts.html?package=es-shims/es-set
+[downloads-image]: https://img.shields.io/npm/dm/es-shims/es-set.svg
+[downloads-url]: https://npm-stat.com/charts.html?package=es-shims/es-set
