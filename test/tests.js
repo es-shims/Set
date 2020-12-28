@@ -68,6 +68,12 @@ module.exports = function (Set, t) {
 		st.end();
 	});
 
+	t.test('throws when `.call`ed with an existing instance', function (t) {
+		var set = new Set();
+		t['throws'](function () { Set.call(set); });
+		t.end();
+	});
+
 	t.test('set iteration', function (st) {
 		var set = new Set();
 
