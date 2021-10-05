@@ -16,9 +16,9 @@ test('named exports', async (t) => {
 	);
 
 	const { shim, getPolyfill, implementation } = SetModule;
-	t.equal(await import('es-set/shim'), shim, 'shim named export matches deep export');
-	t.equal(await import('es-set/implementation'), implementation, 'implementation named export matches deep export');
-	t.equal(await import('es-set/polyfill'), getPolyfill, 'getPolyfill named export matches deep export');
+	t.equal((await import('es-set/shim')).default, shim, 'shim named export matches deep export');
+	t.equal((await import('es-set/implementation')).default, implementation, 'implementation named export matches deep export');
+	t.equal((await import('es-set/polyfill')).default, getPolyfill, 'getPolyfill named export matches deep export');
 
 	t.end();
 });
