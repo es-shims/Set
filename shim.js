@@ -9,8 +9,8 @@ var support = require('./lib/support');
 var addIterableToSet = require('./lib/set-helpers').addIterableToSet;
 var addIterator = require('./lib/helpers').addIterator;
 
-var OrdinarySetPrototypeOf = require('es-abstract/2020/OrdinarySetPrototypeOf');
-var Call = require('es-abstract/2020/Call');
+var Call = require('es-abstract/2021/Call');
+var OrdinarySetPrototypeOf = require('es-abstract/2021/OrdinarySetPrototypeOf');
 
 var force = function () {
 	return true;
@@ -71,7 +71,9 @@ module.exports = function shimSet() {
 				return Call(OrigSet$has, this, [v === 0 ? 0 : v]);
 			}
 		}, {
-			add: force, 'delete': force, has: force
+			add: force,
+			'delete': force,
+			has: force
 		});
 	} else if (!support.setSupportsChaining()) {
 		define(Set.prototype, {

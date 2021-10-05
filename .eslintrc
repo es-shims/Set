@@ -11,6 +11,7 @@
 				"ArrayFrom",
 				"Call",
 				"CreateIterResultObject",
+				"DefinePropertyOrThrow",
 				"GetIntrinsic",
 				"GetIterator",
 				"HasOwnProperty",
