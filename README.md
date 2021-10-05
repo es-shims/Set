@@ -1,5 +1,7 @@
 # es-set <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
 
+[![github actions][actions-image]][actions-url]
+[![coverage][codecov-image]][codecov-url]
 [![dependency status][deps-svg]][deps-url]
 [![dev dependency status][dev-deps-svg]][dev-deps-url]
 [![License][license-image]][license-url]
@@ -43,3 +45,7 @@ Simply clone the repo, `npm install`, and run `npm test`
 [license-url]: LICENSE
 [downloads-image]: https://img.shields.io/npm/dm/es-shims/es-set.svg
 [downloads-url]: https://npm-stat.com/charts.html?package=es-shims/es-set
+[codecov-image]: https://codecov.io/gh/es-shims/es-set/branch/main/graphs/badge.svg
+[codecov-url]: https://app.codecov.io/gh/es-shims/es-set/
+[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/es-shims/es-set
+[actions-url]: https://github.com/es-shims/es-set/actions
