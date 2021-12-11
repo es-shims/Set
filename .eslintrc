@@ -23,21 +23,12 @@
 				"IteratorStep",
 				"ToNumber",
 				"ToString",
-				"Type"
-			]
+				"Type",
+			],
 		}],
 		"no-magic-numbers": [2, {
 			"ignore": [0, 1, 2]
 		}],
-		"func-name-matching": 0
+		"func-name-matching": 0,
 	},
-
-	"overrides": [
-		{
-			"files": "**/*.mjs",
-			"rules": {
-				"no-restricted-exports": 0
-			}
-		}
-	]
 }
