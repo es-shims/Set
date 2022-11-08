@@ -495,7 +495,7 @@ module.exports = function (Set, t) {
 		st.end();
 	});
 
-	t.test('has an iterator that works with Array.from', function (st) {
+	t.test('has an iterator that works with Array.from', { skip: !hasSymbols }, function (st) {
 		var values = [1, NaN, false, true, null, undefined, 'a'];
 
 		st.test('works with the full set', function (sst) {
