@@ -18,7 +18,7 @@ var emulateES6construct = helpers.emulateES6construct;
 var addIterator = helpers.addIterator;
 
 /*
- * Creating a Map is expensive.  To speed up the common case of
+ * Creating a Map is expensive. To speed up the common case of
  * Sets containing only string or numeric keys, we use an object
  * as backing storage and lazily create a full Map only when
  * required.
