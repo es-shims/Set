@@ -9,8 +9,8 @@ var support = require('./lib/support');
 var addIterableToSet = require('./lib/set-helpers').addIterableToSet;
 var addIterator = require('./lib/helpers').addIterator;
 
-var Call = require('es-abstract/2021/Call');
-var OrdinarySetPrototypeOf = require('es-abstract/2021/OrdinarySetPrototypeOf');
+var Call = require('es-abstract/2022/Call');
+var OrdinarySetPrototypeOf = require('es-abstract/2022/OrdinarySetPrototypeOf');
 
 var force = function () {
 	return true;
