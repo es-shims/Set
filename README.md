@@ -34,18 +34,18 @@ map.has(3); // false
 ## Tests
 Simply clone the repo, `npm install`, and run `npm test`
 
-[package-url]: https://npmjs.org/package/es-shims/es-set
-[npm-version-svg]: https://versionbadg.es/es-shims/es-set.svg
-[deps-svg]: https://david-dm.org/es-shims/es-set.svg
-[deps-url]: https://david-dm.org/es-shims/es-set
-[dev-deps-svg]: https://david-dm.org/es-shims/es-set/dev-status.svg
-[dev-deps-url]: https://david-dm.org/es-shims/es-set#info=devDependencies
-[npm-badge-png]: https://nodei.co/npm/es-shims/es-set.png?downloads=true&stars=true
-[license-image]: https://img.shields.io/npm/l/es-shims/es-set.svg
+[package-url]: https://npmjs.org/package/es-shims/Set
+[npm-version-svg]: https://versionbadg.es/es-shims/Set.svg
+[deps-svg]: https://david-dm.org/es-shims/Set.svg
+[deps-url]: https://david-dm.org/es-shims/Set
+[dev-deps-svg]: https://david-dm.org/es-shims/Set/dev-status.svg
+[dev-deps-url]: https://david-dm.org/es-shims/Set#info=devDependencies
+[npm-badge-png]: https://nodei.co/npm/es-set.png?downloads=true&stars=true
+[license-image]: https://img.shields.io/npm/l/es-set.svg
 [license-url]: LICENSE
-[downloads-image]: https://img.shields.io/npm/dm/es-shims/es-set.svg
-[downloads-url]: https://npm-stat.com/charts.html?package=es-shims/es-set
-[codecov-image]: https://codecov.io/gh/es-shims/es-set/branch/main/graphs/badge.svg
-[codecov-url]: https://app.codecov.io/gh/es-shims/es-set/
-[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/es-shims/es-set
-[actions-url]: https://github.com/es-shims/es-set/actions
+[downloads-image]: https://img.shields.io/npm/dm/es-set.svg
+[downloads-url]: https://npm-stat.com/charts.html?package=es-set
+[codecov-image]: https://codecov.io/gh/es-shims/Set/branch/main/graphs/badge.svg
+[codecov-url]: https://app.codecov.io/gh/es-shims/Set/
+[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/es-shims/Set
+[actions-url]: https://github.com/es-shims/Set/actions

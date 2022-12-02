@@ -34,7 +34,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/es-shims/es-set.git"
+		"url": "git+https://github.com/es-shims/Set.git"
 	},
 	"keywords": [
 		"Set",
@@ -47,13 +47,13 @@
 	],
 	"author": "Nicolò Ribaudo <nicolo.ribaudo@gmail.com>",
 	"funding": {
-		"url": "https://github.com/es-shims/es-set?sponsor=1"
+		"url": "https://github.com/es-shims/Set?sponsor=1"
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/es-shims/es-set/issues"
+		"url": "https://github.com/es-shims/Set/issues"
 	},
-	"homepage": "https://github.com/es-shims/es-set#readme",
+	"homepage": "https://github.com/es-shims/Set#readme",
 	"devDependencies": {
 		"@es-shims/api": "^2.2.3",
 		"@ljharb/eslint-config": "^21.0.0",
