@@ -73,7 +73,7 @@
 		"define-properties": "^1.1.4",
 		"es-abstract": "^1.20.4",
 		"es-get-iterator": "^1.1.2",
-		"es-map": "github:es-shims/es-map#main",
+		"es-map": "^1.0.2",
 		"for-each": "^0.3.3",
 		"functions-have-names": "^1.2.3",
 		"get-intrinsic": "^1.1.3",
