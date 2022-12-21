@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.1](https://github.com/es-shims/Set/compare/v1.0.0...v1.0.1) - 2022-12-21
+
+### Commits
+
+- [Refactor] use `es-set-totringtag` [`6f5204b`](https://github.com/es-shims/Set/commit/6f5204bb0245edd40c8cb76470dcea437c2253a7)
+- [Deps] update `es-abstract`, `internal-slot` [`4f68104`](https://github.com/es-shims/Set/commit/4f68104cbfbbcc832d721553b1920503078685a7)
+- [Dev Deps] update `aud` [`9a56484`](https://github.com/es-shims/Set/commit/9a56484e6fbffe3841ba69f0bd6e692fdd086b1b)
+
 ## v1.0.0 - 2022-12-02
 
 ### Commits
