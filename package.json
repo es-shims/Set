@@ -74,6 +74,7 @@
 		"es-abstract": "^1.20.5",
 		"es-get-iterator": "^1.1.2",
 		"es-map": "^1.0.2",
+		"es-set-tostringtag": "^1.0.0",
 		"for-each": "^0.3.3",
 		"functions-have-names": "^1.2.3",
 		"get-intrinsic": "^1.1.3",
