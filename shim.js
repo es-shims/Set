@@ -1,13 +1,16 @@
 'use strict';
 
+var callBind = require('call-bind');
 var define = require('define-properties');
+var Call = require('es-abstract/2022/Call');
+var DefinePropertyOrThrow = require('es-abstract/2022/DefinePropertyOrThrow');
 var globalThis = require('globalthis')();
+var hasPropertyDescriptors = require('has-property-descriptors');
+var SLOT = require('internal-slot');
 
 var getPolyfill = require('./polyfill');
 var support = require('./lib/support');
 var addIterator = require('./lib/helpers').addIterator;
-
-var Call = require('es-abstract/2022/Call');
 
 var force = function () {
 	return true;
@@ -16,6 +19,34 @@ var force = function () {
 var replaceGlobal = function (SetShim) {
 	define(globalThis, { Set: SetShim }, { Set: force });
 	return SetShim;
+};
+
+var $StopIteration = typeof StopIteration === 'object' ? StopIteration : {};
+var getStopIterationIterator = function getStopIterationIterator(origIterator) {
+	SLOT.set(origIterator, '[[Done]]', false);
+	var siIterator = {
+		next: function next() {
+			var iterator = SLOT.get(this, '[[Iterator]]');
+			var done = SLOT.get(iterator, '[[Done]]');
+			try {
+				return {
+					done: done,
+					value: done ? void undefined : iterator.next()
+				};
+			} catch (e) {
+				SLOT.set(iterator, '[[Done]]', true);
+				if (e !== $StopIteration) {
+					throw e;
+				}
+				return {
+					done: true,
+					value: void undefined
+				};
+			}
+		}
+	};
+	SLOT.set(siIterator, '[[Iterator]]', origIterator);
+	return siIterator;
 };
 
 module.exports = function shimSet() {
@@ -28,14 +59,50 @@ module.exports = function shimSet() {
 		}
 
 		if (support.setHasOldFirefoxInterface()) {
-			if (typeof new Set().size === 'function') {
-				// TODO: define size getter
+			if (typeof new Set().size === 'function' && hasPropertyDescriptors()) {
+				var $size = callBind(Set.prototype.size);
+				DefinePropertyOrThrow(Set.prototype, 'size', {
+					'[[Configurable]]': true,
+					'[[Enumerable]]': false,
+					'[[Get]]': function size() {
+						return $size(this);
+					}
+				});
 			}
-			if (typeof Set.prototype.values !== 'function') {
-				// TODO: define values/keys/entries
-			}
+
+			var $entries = callBind(Set.prototype.entries);
+			var $values = callBind(Set.prototype.values);
+			define(Set.prototype, {
+				entries: function entries() {
+					return getStopIterationIterator($entries(this));
+				},
+				values: function values() {
+					return getStopIterationIterator($values(this));
+				}
+			}, {
+				entries: force,
+				values: force
+			});
+
+			/* globals StopIteration: false */
 			if (typeof Set.prototype.forEach !== 'function') {
-				// TODO: FF 24: define forEach
+				var $iterator = callBind(Set.prototype.iterator);
+				define(
+					Set.prototype,
+					{
+						forEach: function forEach(cb) {
+							var iterator = getStopIterationIterator($iterator(this));
+							var thisArg = arguments.length > 1 ? arguments[1] : void undefined;
+							var cbB = callBind(cb, thisArg);
+							var result = iterator.next();
+							while (!result.done) {
+								cbB(result.value, result.value, this);
+								result = iterator.next();
+							}
+						}
+					},
+					{ forEach: force }
+				);
 			}
 		}
 	}

@@ -79,9 +79,15 @@
 		"functions-have-names": "^1.2.3",
 		"get-intrinsic": "^1.1.3",
 		"globalthis": "^1.0.3",
+		"has-property-descriptors": "^1.0.0",
 		"has-symbols": "^1.0.3",
 		"internal-slot": "^1.0.4",
 		"object.entries": "^1.1.6"
+	},
+	"testling": {
+		"files": [
+			"test/shimmed.js"
+		]
 	},
 	"auto-changelog": {
 		"output": "CHANGELOG.md",

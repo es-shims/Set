@@ -7,6 +7,7 @@
 		"array-bracket-newline": 0,
 		"id-length": 0,
 		"max-lines-per-function": 0,
+		"max-statements": 0,
 		"new-cap": [2, {
 			"capIsNewExceptions": [
 				"ArrayFrom",

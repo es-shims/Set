@@ -32,11 +32,17 @@ var iterableToArray = function (set) {
 	var iterator = getIterator(set);
 	var elements = [];
 
-	var result;
-	do {
-		result = iterator.next();
-		if (!result.done) { elements.push(result.value); }
-	} while (!result.done);
+	if (iterator) {
+		var result;
+		do {
+			result = iterator.next();
+			if (!result.done) { elements.push(result.value); }
+		} while (!result.done);
+	} else {
+		set.forEach(function (v) {
+			elements.push(v);
+		});
+	}
 
 	return elements;
 };
