@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.2](https://github.com/es-shims/Set/compare/v1.0.1...v1.0.2) - 2023-01-12
+
+### Commits
+
+- [Fix] prevent identity discontinuity by improving polyfill/shim logic [`ce360a0`](https://github.com/es-shims/Set/commit/ce360a0a4300b522c1e12f499f2075ad45507f75)
+- [Fix] handle older versions of Firefox [`0f02556`](https://github.com/es-shims/Set/commit/0f02556c916a4224f31397602d33781f14af1116)
+- [Tests] use `for-each` for arrays [`c60ce24`](https://github.com/es-shims/Set/commit/c60ce24158e1b3b861fc357e327fd358bbe29419)
+- [Deps] update `es-abstract`, `es-map`, `es-set-tostringtag` [`54a8bf1`](https://github.com/es-shims/Set/commit/54a8bf17a6ef7cc7a5d2fb74b59f51ae3453c71b)
+- [Dev Deps] update `@ljharb/eslint-config` [`6349496`](https://github.com/es-shims/Set/commit/6349496e2f01dcb908e4a2410d5fcb0c9050babb)
+
 ## [v1.0.1](https://github.com/es-shims/Set/compare/v1.0.0...v1.0.1) - 2022-12-21
 
 ### Commits
