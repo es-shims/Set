@@ -1,5 +1,4 @@
 /* eslint-disable no-magic-numbers */
-/* eslint-disable max-lines-per-function */
 
 'use strict';
 
@@ -10,6 +9,7 @@ var hasSymbols = require('has-symbols')();
 var ArrayFrom = require('array.from');
 var Map = require('es-map');
 var getIterator = require('es-get-iterator');
+var forEach = require('for-each');
 
 // eslint-disable-next-line max-params
 var testSet = function (t, set, key, desc) {
@@ -167,7 +167,7 @@ module.exports = function (Set, t) {
 	t.test('should has valid getter and setter calls', function (st) {
 		var set = new Set();
 
-		['add', 'has', 'delete'].forEach(function (method) {
+		forEach(['add', 'has', 'delete'], function (method) {
 			st.doesNotThrow(function () {
 				set[method]({});
 			});
@@ -195,10 +195,10 @@ module.exports = function (Set, t) {
 		 * Run this test twice, one with the "fast" implementation (which only
 		 * allows string and numeric keys) and once with the "slow" impl.
 		 */
-		[true, false].forEach(function (slowkeys) {
+		forEach([true, false], function (slowkeys) {
 			var set = new Set();
 
-			range(1, 20).forEach(function (number) {
+			forEach(range(1, 20), function (number) {
 				if (slowkeys) {
 					testSet(st, set, {});
 				}
@@ -215,7 +215,7 @@ module.exports = function (Set, t) {
 			if (slowkeys) {
 				testkeys.push(true, false, null, undefined);
 			}
-			testkeys.forEach(function (number) {
+			forEach(testkeys, function (number) {
 				testSet(st, set, number);
 				testSet(st, set, String(number));
 			});
@@ -228,7 +228,7 @@ module.exports = function (Set, t) {
 			st.equal(set.has(+0), true);
 
 			// verify that properties of Object don't peek through.
-			[
+			forEach([
 				'hasOwnProperty',
 				'constructor',
 				'toString',
@@ -236,7 +236,7 @@ module.exports = function (Set, t) {
 				'__proto__',
 				'__parent__',
 				'__count__'
-			].forEach(function (prop) {
+			], function (prop) {
 				testSet(st, set, prop);
 			});
 		});
@@ -380,7 +380,7 @@ module.exports = function (Set, t) {
 				Object('abc'),
 				Object(NaN)
 			];
-			nonSets.forEach(function (nonSet) {
+			forEach(nonSets, function (nonSet) {
 				sst['throws'](
 					function () {
 						return Set.prototype.values.call(nonSet);
@@ -544,7 +544,7 @@ module.exports = function (Set, t) {
 		var arr2 = [3, 2, 'z', 'a', 1];
 		var arr3 = [3, 2, 'z', {}, 'a', 1];
 
-		[arr1, arr2, arr3].forEach(function (array) {
+		forEach([arr1, arr2, arr3], function (array) {
 			st.deepEqual(iterableToArray(new Set(array)), array);
 		});
 		st.end();
@@ -593,7 +593,7 @@ module.exports = function (Set, t) {
 		st.test('should iterate over empty keys', function (sst) {
 			var setWithEmptyKeys = new Set();
 			var expectedKeys = [{}, null, undefined, '', NaN, 0];
-			expectedKeys.forEach(function (key) {
+			forEach(expectedKeys, function (key) {
 				sst.equal(setWithEmptyKeys.add(key), setWithEmptyKeys);
 			});
 			var foundKeys = [];
