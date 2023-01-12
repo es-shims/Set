@@ -2,6 +2,7 @@
 
 var define = require('define-properties');
 var SLOT = require('internal-slot');
+var setProto = require('es-abstract/helpers/setProto');
 
 var SetIterator = require('./lib/set-iterator');
 var setHelpers = require('./lib/set-helpers');
@@ -143,5 +144,9 @@ define(SetShimPrototype, {
 define(SetShimPrototype, { keys: SetShimPrototype.values });
 
 addIterator(SetShimPrototype, SetShimPrototype.values);
+
+if (typeof Set === 'function' && setProto) {
+	setProto(SetShimPrototype, Set.prototype);
+}
 
 module.exports = SetShim;

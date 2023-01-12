@@ -11,6 +11,8 @@ var Map = require('es-map');
 var getIterator = require('es-get-iterator');
 var forEach = require('for-each');
 
+var $Set = typeof Set === 'function' ? Set : null;
+
 // eslint-disable-next-line max-params
 var testSet = function (t, set, key, desc) {
 	// eslint-disable-next-line no-param-reassign
@@ -71,6 +73,12 @@ module.exports = function (Set, t) {
 	t.test('throws when `.call`ed with an existing instance', function (st) {
 		var set = new Set();
 		st['throws'](function () { Set.call(set); });
+		st.end();
+	});
+
+	t.test('subclasses native Set if it exists and differs', { skip: !$Set || $Set === Set }, function (st) {
+		st.ok(new Set() instanceof $Set, 'is an instance of native Set');
+
 		st.end();
 	});
 
