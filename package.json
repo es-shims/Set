@@ -82,7 +82,8 @@
 		"has-property-descriptors": "^1.0.0",
 		"has-symbols": "^1.0.3",
 		"internal-slot": "^1.0.4",
-		"object.entries": "^1.1.6"
+		"object.entries": "^1.1.6",
+		"stop-iteration-iterator": "^1.0.0"
 	},
 	"testling": {
 		"files": [

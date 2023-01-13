@@ -6,7 +6,7 @@ var Call = require('es-abstract/2022/Call');
 var DefinePropertyOrThrow = require('es-abstract/2022/DefinePropertyOrThrow');
 var globalThis = require('globalthis')();
 var hasPropertyDescriptors = require('has-property-descriptors');
-var SLOT = require('internal-slot');
+var getStopIterationIterator = require('stop-iteration-iterator');
 
 var getPolyfill = require('./polyfill');
 var support = require('./lib/support');
@@ -19,34 +19,6 @@ var force = function () {
 var replaceGlobal = function (SetShim) {
 	define(globalThis, { Set: SetShim }, { Set: force });
 	return SetShim;
-};
-
-var $StopIteration = typeof StopIteration === 'object' ? StopIteration : {};
-var getStopIterationIterator = function getStopIterationIterator(origIterator) {
-	SLOT.set(origIterator, '[[Done]]', false);
-	var siIterator = {
-		next: function next() {
-			var iterator = SLOT.get(this, '[[Iterator]]');
-			var done = SLOT.get(iterator, '[[Done]]');
-			try {
-				return {
-					done: done,
-					value: done ? void undefined : iterator.next()
-				};
-			} catch (e) {
-				SLOT.set(iterator, '[[Done]]', true);
-				if (e !== $StopIteration) {
-					throw e;
-				}
-				return {
-					done: true,
-					value: void undefined
-				};
-			}
-		}
-	};
-	SLOT.set(siIterator, '[[Iterator]]', origIterator);
-	return siIterator;
 };
 
 module.exports = function shimSet() {
@@ -84,7 +56,6 @@ module.exports = function shimSet() {
 				values: force
 			});
 
-			/* globals StopIteration: false */
 			if (typeof Set.prototype.forEach !== 'function') {
 				var $iterator = callBind(Set.prototype.iterator);
 				define(
