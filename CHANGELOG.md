@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.3](https://github.com/es-shims/Set/compare/v1.0.2...v1.0.3) - 2023-01-13
+
+### Commits
+
+- [Refactor] use `stop-iteration-iterator` [`ed7528c`](https://github.com/es-shims/Set/commit/ed7528cc769ab313c1a1f27ff715135947e85a39)
+- [Deps] update `es-get-iterator` [`d0e7d4c`](https://github.com/es-shims/Set/commit/d0e7d4cdb777b6451d038f74c162489dd343ecf5)
+- [Deps] update `es-set-to-stringtag` [`666ccde`](https://github.com/es-shims/Set/commit/666ccde4117ccafef2f848af54f6cd1133694066)
+
 ## [v1.0.2](https://github.com/es-shims/Set/compare/v1.0.1...v1.0.2) - 2023-01-12
 
 ### Commits
