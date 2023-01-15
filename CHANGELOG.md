@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.0](https://github.com/es-shims/Set/compare/v1.0.3...v1.1.0) - 2023-01-14
+
+### Commits
+
+- [New] add `tools` export, for a trivial add/set/delete/has/forEach/size wrapper [`c22ba07`](https://github.com/es-shims/Set/commit/c22ba074110077a0a2767869f3be301a650aeab4)
+
 ## [v1.0.3](https://github.com/es-shims/Set/compare/v1.0.2...v1.0.3) - 2023-01-13
 
 ### Commits
