@@ -2,8 +2,8 @@
 
 var callBind = require('call-bind');
 var define = require('define-properties');
-var Call = require('es-abstract/2022/Call');
-var DefinePropertyOrThrow = require('es-abstract/2022/DefinePropertyOrThrow');
+var Call = require('es-abstract/2023/Call');
+var DefinePropertyOrThrow = require('es-abstract/2023/DefinePropertyOrThrow');
 var globalThis = require('globalthis')();
 var hasPropertyDescriptors = require('has-property-descriptors');
 var getStopIterationIterator = require('stop-iteration-iterator');

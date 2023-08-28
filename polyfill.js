@@ -1,6 +1,6 @@
 'use strict';
 
-var OrdinarySetPrototypeOf = require('es-abstract/2022/OrdinarySetPrototypeOf');
+var OrdinarySetPrototypeOf = require('es-abstract/2023/OrdinarySetPrototypeOf');
 var define = require('define-properties');
 var SLOT = require('internal-slot');
 
