@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.1](https://github.com/es-shims/Set/compare/v1.1.0...v1.1.1) - 2023-08-28
+
+### Commits
+
+- [Deps] update `define-properties`,  `es-abstract`, `es-map`, `get-intrinsic`, `internal-slot`, `object.entries` [`0d4cd51`](https://github.com/es-shims/Set/commit/0d4cd51eb51eb65a7788f4500c8b56512035929b)
+- [Dev Deps] update `@es-shims/api`, `@ljharb/eslint-config`, `array.from`, `aud`, `tape` [`f454b52`](https://github.com/es-shims/Set/commit/f454b52fdd88eb4e6b44f9e6d374fe44309ad744)
+
 ## [v1.1.0](https://github.com/es-shims/Set/compare/v1.0.3...v1.1.0) - 2023-01-14
 
 ### Commits
