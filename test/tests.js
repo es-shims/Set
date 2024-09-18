@@ -1,4 +1,3 @@
-
 'use strict';
 
 var HasOwnProperty = require('es-abstract/2023/HasOwnProperty');
@@ -9,20 +8,20 @@ var ArrayFrom = require('array.from');
 var Map = require('es-map');
 var getIterator = require('es-get-iterator');
 var forEach = require('for-each');
+var inspect = require('object-inspect');
 
 var $Set = typeof Set === 'function' ? Set : null;
 
-// eslint-disable-next-line max-params
 var testSet = function (t, set, key, desc) {
 	// eslint-disable-next-line no-param-reassign
 	if (!desc) { desc = ''; }
 
-	t.equal(set.has(key), false, desc + ' - .has(key) returns false');
-	t.equal(set['delete'](key), false, desc + ' - .delete(key) returns false');
-	t.equal(set.add(key), set, desc + ' - .add(key) returns the set');
-	t.equal(set.has(key), true, desc + ' - .has(key) returns true');
-	t.equal(set['delete'](key), true, desc + ' - .delete(key) returns true');
-	t.equal(set.has(key), false, desc + ' - .has(key) returns false');
+	t.equal(set.has(key), false, desc + ' - .has(' + inspect(key) + ') returns false');
+	t.equal(set['delete'](key), false, desc + ' - .delete(' + inspect(key) + ') returns false');
+	t.equal(set.add(key), set, desc + ' - .add(' + inspect(key) + ') returns the set');
+	t.equal(set.has(key), true, desc + ' - .has(' + inspect(key) + ') returns true');
+	t.equal(set['delete'](key), true, desc + ' - .delete(' + inspect(key) + ') returns true');
+	t.equal(set.has(key), false, desc + ' - .has(' + inspect(key) + ') returns false');
 
 	set.add(key); // add it back
 };
@@ -198,8 +197,8 @@ module.exports = function (Set, t) {
 		fourSet.add(-0);
 
 		st.equal(fourSet.size, 5);
-		st.equal(fourSet.has(0), true);
-		st.equal(fourSet.has(-0), true);
+		st.equal(fourSet.has(0), true, 'has +0');
+		st.equal(fourSet.has(-0), true, 'has -0');
 		st.end();
 	});
 
@@ -235,10 +234,10 @@ module.exports = function (Set, t) {
 			testSet(st, set, '');
 
 			// -0 and +0 should be the same key (Set uses SameValueZero)
-			st.equal(set.has(-0), true);
-			st.equal(set['delete'](+0), true);
+			st.equal(set.has(-0), true, 'has -0');
+			st.equal(set['delete'](+0), true, 'deletes +0');
 			testSet(st, set, -0);
-			st.equal(set.has(+0), true);
+			st.equal(set.has(+0), true, 'has +0');
 
 			// verify that properties of Object don't peek through.
 			forEach([

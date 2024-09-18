@@ -11,7 +11,11 @@ var support = require('./lib/support');
 var SetShim;
 
 module.exports = function getPolyfill() {
-	if (typeof Set === 'function' && !support.setCompliantConstructor()) {
+	if (
+		typeof Set === 'function'
+		&& !support.setCompliantConstructor()
+		&& support.setUsesSameValueZero()
+	) {
 		var OrigSet = Set;
 		if (
 			!SetShim
