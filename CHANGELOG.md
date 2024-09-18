@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.2](https://github.com/es-shims/Set/compare/v1.1.1...v1.1.2) - 2024-09-18
+
+### Commits
+
+- [Refactor] update `es-abstract` usage to 2024 [`40d271f`](https://github.com/es-shims/Set/commit/40d271f1f34d0b4d6c62bce45f715f7aec032076)
+- [Fix] `polyfill`: node 0.12 and io.js v1 and v2 have bugs with -0 [`ed296af`](https://github.com/es-shims/Set/commit/ed296afda1033a6100368148998fb21f791e38b6)
+- [Deps] update `call-bind`, `define-properties`, `es-abstract`, `es-map`, `es-set-tostringtag`, `get-intrinsic`, `globalthis`, `has-property-descriptors`, `internal-slot`, `object.entries` [`dc732db`](https://github.com/es-shims/Set/commit/dc732dbcb9210174d423a9fc3f0756a04179c619)
+- [Dev Deps] update `@es-shims/api`, `@ljharb/eslint-config`, `array.from`, `auto-changelog`, `npmignore`, `tape` [`8fc1319`](https://github.com/es-shims/Set/commit/8fc131935cbe65d273d903ccf16f421bf28ee7f5)
+- [meta] add missing `engines.node` [`665656c`](https://github.com/es-shims/Set/commit/665656cd2d459fd09fe7d528b567a55994aa2667)
+- [Tests] replace `aud` with `npm audit` [`7473c3c`](https://github.com/es-shims/Set/commit/7473c3c5e4a8b5f3aa16001055fbe834ef910233)
+- [Dev Deps] temporarily pin @es-shims/api [`d41aeb6`](https://github.com/es-shims/Set/commit/d41aeb6bfc32216aeca3d9af717b0c3781a20a55)
+- [Dev Deps] add missing peer dep [`c55907f`](https://github.com/es-shims/Set/commit/c55907f29ce6e8143d87decd766d23b88a621f55)
+
 ## [v1.1.1](https://github.com/es-shims/Set/compare/v1.1.0...v1.1.1) - 2023-08-28
 
 ### Commits
