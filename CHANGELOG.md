@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.0.0](https://github.com/es-shims/Set/compare/v1.1.2...v2.0.0) - 2024-09-22
+
+### Commits
+
+- [Refactor] remove useless ESM [`c4c52eb`](https://github.com/es-shims/Set/commit/c4c52eb17e54b34aef6ab926bb62beda39363560)
+- [Breaking] update to es-shims API v3 [`74dfc15`](https://github.com/es-shims/Set/commit/74dfc159c01a5f41d333078284fb996a5461df52)
+
 ## [v1.1.2](https://github.com/es-shims/Set/compare/v1.1.1...v1.1.2) - 2024-09-18
 
 ### Commits
