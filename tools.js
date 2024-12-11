@@ -3,7 +3,7 @@
 var $Set = require('./polyfill')();
 
 var callBind = require('call-bind');
-var callBound = require('call-bind/callBound');
+var callBound = require('call-bound');
 var gOPD = require('gopd');
 var iterate = require('iterate-value');
 
