@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.0.1](https://github.com/es-shims/Set/compare/v2.0.0...v2.0.1) - 2024-12-11
+
+### Commits
+
+- [actions] split out node 10-20, and 20+ [`90dd4ed`](https://github.com/es-shims/Set/commit/90dd4ed3cfd5b4e80c7fbde9510606af58c07c3a)
+- [Deps] update `call-bind`, `es-abstract`, `es-map`, `get-intrinsic`, `gopd`, `has-symbols` [`cd5ff06`](https://github.com/es-shims/Set/commit/cd5ff061ef53079002c8cbce317cca7f0bb527ab)
+- [Refactor] use `call-bound` directly [`8d75133`](https://github.com/es-shims/Set/commit/8d751334b79a143f1e0663de29c919797f501874)
+- [Dev Deps] update `object-inspect` [`97dea11`](https://github.com/es-shims/Set/commit/97dea11d12e29c6cace2e33dd5044e725c1d5a49)
+
 ## [v2.0.0](https://github.com/es-shims/Set/compare/v1.1.2...v2.0.0) - 2024-09-22
 
 ### Commits
